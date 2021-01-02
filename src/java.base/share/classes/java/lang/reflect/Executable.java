@@ -707,7 +707,7 @@ public abstract class Executable extends AccessibleObject
         Class<?> ownerClass = c.getDeclaringClass();
         TypeVariable<?>[] typeVars = c.getTypeParameters();
 
-        if (ownerClass == null) { // base case
+        if (ownerClass == null || Modifier.isStatic(c.getModifiers())) { // base case
             if (typeVars.length == 0)
                 return c;
             else
